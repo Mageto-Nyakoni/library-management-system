@@ -1,8 +1,8 @@
 package nyakoni.library.DAO;
 
-import com.nyakoni.library.model.Review;
-import com.nyakoni.library.model.Book;
-import com.nyakoni.library.model.User;
+import nyakoni.library.model.Review;
+import nyakoni.library.model.Book;
+import nyakoni.library.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;

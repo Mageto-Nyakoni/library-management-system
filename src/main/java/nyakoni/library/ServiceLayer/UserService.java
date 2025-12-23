@@ -4,19 +4,23 @@ import nyakoni.library.DAO.UserDAO;
 import nyakoni.library.model.User;
 
 public class UserService {
-    
+
     private UserDAO userDAO = new UserDAO();
 
     // FEATURE 1: Login Logic
     public User login(String email, String password) {
+        // Normalize input to avoid common whitespace/casing errors
+        String normalizedEmail = email == null ? "" : email.trim().toLowerCase();
+        String normalizedPassword = password == null ? "" : password.trim();
+
         // 1. Ask DAO for the user with this email
-        User user = userDAO.getUserByEmail(email);
+        User user = userDAO.getUserByEmail(normalizedEmail);
 
         // 2. Validate: Does user exist? Does password match?
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(normalizedPassword)) {
             return user; // Login successful
         }
-        
+
         return null; // Login failed
     }
 
