@@ -65,9 +65,6 @@ public class Menu {
     }
 
     private void handleRegister() {
-        System.out.print("Library Card Number: ");
-        int cardNumber = Integer.parseInt(scanner.nextLine().trim());
-
         System.out.print("Name: ");
         String name = scanner.nextLine().trim();
 
@@ -81,7 +78,7 @@ public class Menu {
         String phone = scanner.nextLine().trim();
 
         var newUser = new nyakoni.library.model.User(
-                cardNumber,
+                0, // placeholder; DB will assign real LibraryCardNumber
                 name,
                 email,
                 password,
