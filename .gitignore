@@ -1,0 +1,21 @@
+# --- Java Build Files (Standard) ---
+target/
+*.class
+*.jar
+*.war
+
+# --- VS Code Specific  ---
+.vscode/
+*.code-workspace
+
+# --- IntelliJ IDEA Specific ---
+# (Keep this! You have an .idea folder, so you must ignore it)
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# --- OS Junk ---
+.DS_Store
+Thumbs.db
