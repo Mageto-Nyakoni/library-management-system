@@ -11,8 +11,20 @@ import java.util.List;
 
 public class LibraryService {
 
-    private BookDAO bookDAO = new BookDAO();
-    private ReviewDAO reviewDAO = new ReviewDAO();
+    private BookDAO bookDAO;
+    private ReviewDAO reviewDAO;
+
+    // Constructor for dependency injection (testing)
+    public LibraryService(BookDAO bookDAO, ReviewDAO reviewDAO) {
+        this.bookDAO = bookDAO;
+        this.reviewDAO = reviewDAO;
+    }
+
+    // Default constructor for production use
+    public LibraryService() {
+        this.bookDAO = new BookDAO();
+        this.reviewDAO = new ReviewDAO();
+    }
 
     // FEATURE 1: Get the full catalog
     public List<Book> getCatalog() {

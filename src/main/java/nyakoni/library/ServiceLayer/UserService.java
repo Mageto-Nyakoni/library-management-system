@@ -5,7 +5,17 @@ import nyakoni.library.model.User;
 
 public class UserService {
 
-    private UserDAO userDAO = new UserDAO();
+    private UserDAO userDAO;
+
+    // Constructor for dependency injection (testing)
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    // Default constructor for production use
+    public UserService() {
+        this.userDAO = new UserDAO();
+    }
 
     // FEATURE 1: Login Logic
     public User login(String email, String password) {
